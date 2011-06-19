@@ -3,7 +3,8 @@
 sudo emerge -va app-vim/nerdtree app-vim/fugitive app-vim/snipmate \
                 app-vim/surround app-vim/minibufexpl app-vim/command-t \
                 dev-python/pyflakes app-vim/gundo dev-python/pep8 \
-                dev-python/pytest sys-apps/ack app-vim/command-t
+                dev-python/pytest sys-apps/ack app-vim/command-t \
+                app-vim/eselect-syntax app-vim/nginx-syntax app-vim/extra-syntax \
 
 rm -rf _vim/bundle/*
 
