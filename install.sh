@@ -26,10 +26,6 @@ else
 fi
 
 if [ "$OS" = "gentoo" ]; then
-    sudo emerge -va  app-vim/nerdtree app-vim/fugitive app-vim/snipmate \
-                app-vim/surround app-vim/minibufexpl app-vim/command-t \
-                dev-python/pyflakes app-vim/gundo dev-python/pep8 \
-                dev-python/pytest sys-apps/ack app-vim/command-t
     cp gitmodules-gentoo .gitmodules
 elif [ "$OS" = "debian" ]; then
     cp gitmodules-debian .gitmodules
