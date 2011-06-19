@@ -1,6 +1,33 @@
 # If not running interactively, don't do anything
 [ -z "$PS1" ] && return
 
+# Lang
+export LANG="de_DE.UTF-8"
+# Terminal un english
+# # export LC_ALL="en_US.UTF-8"
+
+# Less Stuff
+export PAGER="most"
+export LESSCOLORIZER="pygmentize"
+export LESSCOLOR="always"
+
+# GPG Config
+GPG_TTY=$(tty)
+export GPG_TTY
+if [ -f "${HOME}/.gnupg/.gpg-agent-info" ]; then
+    . "${HOME}/.gnupg/.gpg-agent-info"
+fi
+
+# Some cool things
+export HISTSIZE=1000
+export HISTFILESIZE=1000
+export GREP_OPTIONS='--color=auto --exclude=*~'
+export BROWSER="firefox"
+
+# Colorize logs
+lesslog() { ccze -A < $1 | less -R; }
+taillog() { tail -f $1 | ccze -A; }
+
 #osx color terminal
 export CLICOLOR=1
 # don't put duplicate lines in the history. See bash(1) for more options
@@ -16,7 +43,7 @@ shopt -s histappend
 shopt -s checkwinsize
 
 # make less more friendly for non-text input files, see lesspipe(1)
-[ -x /usr/bin/lesspipe ] && eval "$(SHELL=/bin/sh lesspipe)"
+#[ -x /usr/bin/lesspipe ] && eval "$(SHELL=/bin/sh lesspipe)"
 
 # set variable identifying the chroot you work in (used in the prompt below)
 if [ -z "$debian_chroot" ] && [ -r /etc/debian_chroot ]; then
@@ -24,7 +51,13 @@ if [ -z "$debian_chroot" ] && [ -r /etc/debian_chroot ]; then
 fi
 
 #PS1='${debian_chroot:+($debian_chroot)}\[\033[01;32m\]\u@\h\[\033[00m\]:\[\033[01;34m\]\w\[\033[00m\]\$ '
-PS1='\[\033[01;31m\]\w\[\033[00m\]\n${debian_chroot:+($debian_chroot)}\[\033[01;34m\]\u\[\033[01;32m\]@\[\033[01;34m\]\h\[\033[00m\]\$ '
+#PS1='\[\033[01;31m\]\w\[\033[00m\]\n${debian_chroot:+($debian_chroot)}\[\033[01;34m\]\u\[\033[01;32m\]@\[\033[01;34m\]\h\[\033[00m\]\$ '
+
+if [[ ${EUID} == 0 ]] ; then
+    export PS1="\[\033[01;31m\]\h\[\033[00m\]\[\033[01;32m\] \[\033[01;32m\]\u \[\033[00;33m\]\w\n\[\033[01;30m\]$ \[\033[00m\]"
+else
+    export PS1="\[\033[01;32m\]\h\[\033[00m\]\[\033[01;32m\] \[\033[01;37m\]\u \[\033[00;33m\]\w\n\[\033[01;30m\]$ \[\033[00m\]"
+fi
 
 # If this is an xterm set the title to user@host:dir
 case "$TERM" in
@@ -170,5 +203,7 @@ export DYLD_LIBRARY_PATH=/usr/local/mysql/lib/
 export EDITOR=vim
 
 # Add git and svn branch names
-export PS1="$PS1\$(parse_git_branch)\$(parse_svn_branch) "
+if [[ ${EUID} != 0 ]] ; then
+    export PS1="$PS1\$(parse_git_branch)\$(parse_svn_branch) "
+fi
 export EDITOR=vim
