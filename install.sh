@@ -1,4 +1,7 @@
 #!/usr/bin/env bash
+
+OS="gentoo"
+
 function link_file {
     source="${PWD}/$1"
     target="${HOME}/${1/_/.}"
@@ -22,6 +25,19 @@ else
     done
 fi
 
+if [ "$OS" = "gentoo" ]; then
+    sudo emerge -va  app-vim/nerdtree app-vim/fugitive app-vim/snipmate \
+                app-vim/surround app-vim/minibufexpl app-vim/command-t \
+                dev-python/pyflakes app-vim/gundo dev-python/pep8 \
+                dev-python/pytest sys-apps/ack app-vim/command-t
+    cp gitmodules-gentoo .gitmodules
+elif [ "$OS" = "debian" ]; then
+    cp gitmodules-debian .gitmodules
+else
+    cp gitmodules-default .gitmodules
+fi
+
+
 git submodule sync
 git submodule init
 git submodule update
@@ -30,5 +46,7 @@ git submodule foreach git submodule init
 git submodule foreach git submodule update
 
 # setup command-t
-cd _vim/bundle/command-t
-rake make
+if [ "$OS" != "gentoo" ]; then
+    cd _vim/bundle/command-t
+    rake make
+fi
