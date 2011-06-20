@@ -124,7 +124,7 @@ map <leader>r :RopeRename<CR>
 " Load pathogen with docs for all plugins
 "filetype off
 call pathogen#runtime_append_all_bundles()
-"call pathoeen#helptags()
+call pathogen#helptags()
 
 " ==========================================================
 " Basic Settings
@@ -152,7 +152,8 @@ nnoremap <leader>. :lcd %:p:h<CR>
 
 " Disable the colorcolumn when switching modes.  Make sure this is the
 " first autocmd for the filetype here
-autocmd FileType * setlocal colorcolumn=0
+" FIXME: does not work on debian squeeze
+"autocmd FileType * setlocal colorcolumn=0
 
 """ Insert completion
 " don't select first item, follow typing in autocomplete
