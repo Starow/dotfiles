@@ -140,6 +140,11 @@ else
   alias ll="ls -lF"
 fi
 
+# Some default aliases that should always be there
+alias psg='ps aux |grep -i'
+alias scpresume="rsync --partial --progress --rsh=ssh"
+alias sslTelnet='openssl s_client -connect ' # host:port
+
 # Alias definitions.
 if [ -f ~/.bash_aliases ]; then
     . ~/.bash_aliases
