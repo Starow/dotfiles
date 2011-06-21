@@ -28,6 +28,8 @@ $if mode=vi
     # auto-complete from the history
     "\C-p": history-search-backward
     "\C-n": history-search-forward
+    "\e[5~": history-search-backward
+    "\e[6~": history-search-forward
     # gnome / konsole / others (control + arrow key)
     "\e[1;5C": forward-word
     "\e[1;5D": backward-word
