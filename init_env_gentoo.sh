@@ -1,10 +1,10 @@
 #!/bin/bash
 
-sudo emerge -va app-vim/nerdtree app-vim/fugitive app-vim/snipmate \
-                app-vim/surround app-vim/minibufexpl app-vim/command-t \
-                dev-python/pyflakes app-vim/gundo dev-python/pep8 \
-                dev-python/pytest sys-apps/ack app-vim/command-t \
-                app-vim/eselect-syntax app-vim/nginx-syntax app-vim/extra-syntax \
+sudo emerge -va dev-python/rlcompleter2 app-vim/nerdtree app-vim/fugitive \
+                app-vim/snipmate app-vim/surround app-vim/minibufexpl \
+                app-vim/command-t dev-python/pyflakes app-vim/gundo \
+                dev-python/pep8 dev-python/pytest app-vim/extra-syntax \
+                app-vim/eselect-syntax app-vim/nginx-syntax sys-apps/ack
 
 rm -rf _vim/bundle/*
 
