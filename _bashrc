@@ -4,11 +4,15 @@
 # Lang
 export LANG="de_DE.UTF-8"
 # Terminal un english
-# # export LC_ALL="en_US.UTF-8"
+# # export LANG="en_US.UTF-8"
 
 # Less Stuff
-export PAGER="most"
-export LESSCOLORIZER="pygmentize"
+if [ -f "/usr/bin/most" ]; then
+    export PAGER="most"
+fi
+if [ -f "/usr/bin/pygmentize" ]; then
+    export LESSCOLORIZER="pygmentize"
+fi
 export LESSCOLOR="always"
 
 # GPG Config
@@ -22,11 +26,15 @@ fi
 export HISTSIZE=1000
 export HISTFILESIZE=1000
 export GREP_OPTIONS='--color=auto --exclude=*~'
-export BROWSER="firefox"
+if [ -f "/usr/bin/firefox" ]; then
+    export BROWSER="firefox"
+fi
 
 # Colorize logs
-lesslog() { ccze -A < $1 | less -R; }
-taillog() { tail -f $1 | ccze -A; }
+if [ -f "/usr/bin/ccze" ]; then
+    lesslog() { ccze -A < $1 | less -R; }
+    taillog() { tail -f $1 | ccze -A; }
+fi
 
 #osx color terminal
 export CLICOLOR=1
@@ -42,16 +50,10 @@ shopt -s histappend
 # update the values of LINES and COLUMNS.
 shopt -s checkwinsize
 
-# make less more friendly for non-text input files, see lesspipe(1)
-#[ -x /usr/bin/lesspipe ] && eval "$(SHELL=/bin/sh lesspipe)"
-
 # set variable identifying the chroot you work in (used in the prompt below)
 if [ -z "$debian_chroot" ] && [ -r /etc/debian_chroot ]; then
     debian_chroot=$(cat /etc/debian_chroot)
 fi
-
-#PS1='${debian_chroot:+($debian_chroot)}\[\033[01;32m\]\u@\h\[\033[00m\]:\[\033[01;34m\]\w\[\033[00m\]\$ '
-#PS1='\[\033[01;31m\]\w\[\033[00m\]\n${debian_chroot:+($debian_chroot)}\[\033[01;34m\]\u\[\033[01;32m\]@\[\033[01;34m\]\h\[\033[00m\]\$ '
 
 if [[ ${EUID} == 0 ]] ; then
     export PS1="\[\033[01;31m\]\h\[\033[00m\]\[\033[01;32m\] \[\033[01;32m\]\u \[\033[00;33m\]\w\n\[\033[01;30m\]$ \[\033[00m\]"
@@ -176,39 +178,36 @@ if [ "$venwrap" != "" ]; then
     source $venwrap
 fi
 
-# osx vim
-if [ -x "/Applications/MacVim.app/Contents/MacOS/Vim" ]; then
-    PATH=/Applications/MacVim.app/Contents/MacOS/:$PATH
+if [ -f "~/.pythonrc.py" ]; then
+    PYTHONSTARTUP=~/.pythonrc.py
+    export PYTHONSTARTUP
 fi
 
-PATH=/usr/local/sbin:$PATH:/usr/local/mysql/bin
-export PATH
+if [ -f "/usr/bin/git" ]; then
+    parse_git_branch ()
+    {
+      git name-rev HEAD 2> /dev/null | sed 's#HEAD\ \(.*\)#(git::\1)#'
+    }
+fi
 
+if [ -f "/usr/bin/svn" ]; then
+    parse_svn_branch() {
+      parse_svn_url | sed -e 's#^'"$(parse_svn_repository_root)"'##g' | awk -F / '{print "(svn::"$1 "/" $2 ")"}'
+    }
+    parse_svn_url() {
+      svn info 2>/dev/null | sed -ne 's#^URL: ##p'
+    }
+    parse_svn_repository_root() {
+      svn info 2>/dev/null | sed -ne 's#^Repository Root: ##p'
+    }
+fi
 
-
-PYTHONSTARTUP=~/.pythonrc.py
-export PYTHONSTARTUP
-
-parse_git_branch ()
-{
-  git name-rev HEAD 2> /dev/null | sed 's#HEAD\ \(.*\)#(git::\1)#'
-}
-parse_svn_branch() {
-  parse_svn_url | sed -e 's#^'"$(parse_svn_repository_root)"'##g' | awk -F / '{print "(svn::"$1 "/" $2 ")"}'
-}
-parse_svn_url() {
-  svn info 2>/dev/null | sed -ne 's#^URL: ##p'
-}
-parse_svn_repository_root() {
-  svn info 2>/dev/null | sed -ne 's#^Repository Root: ##p'
-}
-
-export DYLD_LIBRARY_PATH=/usr/local/mysql/lib/
-
-export EDITOR=vim
+if [ -f "/usr/bin/vim" ]; then
+    export EDITOR=vim
+fi
 
 # Add git and svn branch names
 if [[ ${EUID} != 0 ]] ; then
     export PS1="$PS1\$(parse_git_branch)\$(parse_svn_branch) "
 fi
-export EDITOR=vim
+
