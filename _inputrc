@@ -17,23 +17,24 @@ set input-meta on
 set output-meta on
 set convert-meta off
 
-$if mode=vi
-    set keymap vi-command
-    "gg": beginning-of-history
-    "G": end-of-history
+set keymap vi-command
+"gg": beginning-of-history
+"G": end-of-history
 
-    set keymap vi-insert
-    "\C-l": clear-screen
-    "\C-w": backward-kill-word
-    # auto-complete from the history
-    "\C-p": history-search-backward
-    "\C-n": history-search-forward
-    "\e[5~": history-search-backward
-    "\e[6~": history-search-forward
-    # gnome / konsole / others (control + arrow key)
-    "\e[1;5C": forward-word
-    "\e[1;5D": backward-word
-$endif
+set keymap vi-insert
+"\C-l": clear-screen
+"\C-w": backward-kill-word
+# auto-complete from the history
+"\C-p": history-search-backward
+"\C-n": history-search-forward
+"\e[5~": history-search-backward
+"\e[6~": history-search-forward
+# gnome / konsole / others (control + arrow key)
+"\e[1;5C": forward-word
+"\e[1;5D": backward-word
+# Tmux
+"\eOD": backward-word
+"\eOC": forward-word
 
 # IPython needs this to appear at the bottom of the
 # file for clear-screen to work
