@@ -140,6 +140,16 @@ set wildmode=full             " <Tab> cycles between all matching choices.
 set noerrorbells
 set vb t_vb=
 
+" Get 256 colors
+set t_Co=256
+
+" Set colorscheme
+colorscheme desert256
+highlight Search ctermfg=black
+
+" Easytag
+let easytags_resolve_links = 1
+
 " Ignore these files when completing
 set wildignore+=*.o,*.obj,.git,*.pyc
 set grepprg=ack-grep          " replace the default grep program with ack
@@ -157,9 +167,9 @@ nnoremap <leader>. :lcd %:p:h<CR>
 set completeopt=menuone,longest,preview
 set pumheight=6             " Keep a small completion window
 
-" show a line at column 79
+" show a line at column 80
 if exists("&colorcolumn")
-    set colorcolumn=79
+    set colorcolumn=80
 endif
 
 """ Moving Around/Editing
@@ -285,10 +295,14 @@ let g:acp_completeoptPreview=1
 autocmd BufNewFile,BufRead *.mako,*.mak setlocal ft=html
 autocmd FileType html,xhtml,xml,css setlocal expandtab shiftwidth=2 tabstop=2 softtabstop=2
 
+" ReStrucTured text
+au BufRead,BufNewFile *.md set syntax=markdown
+
 " Python
 "au BufRead *.py compiler nose
 au FileType python set omnifunc=pythoncomplete#Complete
 au FileType python setlocal expandtab shiftwidth=4 tabstop=8 softtabstop=4 smartindent cinwords=if,elif,else,for,while,try,except,finally,def,class,with
+let python_highlight_all = 1
 au BufRead *.py set efm=%C\ %.%#,%A\ \ File\ \"%f\"\\,\ line\ %l%.%#,%Z%[%^\ ]%\\@=%m
 " Don't let pyflakes use the quickfix window
 let g:pyflakes_use_quickfix = 0

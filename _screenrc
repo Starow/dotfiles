@@ -42,3 +42,5 @@ startup_message off
 
 # Set messages timeout to one second:
 msgwait 1
+
+term screen-256color
