@@ -16,8 +16,8 @@ git submodule add https://github.com/vim-scripts/pep8.git _vim/bundle/pep8
 git submodule add https://github.com/alfredodeza/pytest.vim.git _vim/bundle/pytest
 git submodule add https://github.com/reinh/vim-makegreen _vim/bundle/makegreen
 git submodule add https://github.com/vim-scripts/TaskList.vim.git _vim/bundle/tasklist
-git submodule add  https://github.com/vim-scripts/The-NERD-tree.git _vim/bundle/nerdtree
+git submodule add https://github.com/vim-scripts/The-NERD-tree.git _vim/bundle/nerdtree
 git submodule add https://github.com/sontek/rope-vim.git _vim/bundle/ropevim
 git submodule add https://github.com/vim-scripts/AutoComplPop.git _vim/bundle/acp
 git submodule add https://github.com/altercation/vim-colors-solarized.git _vim/bundle/solarized
-
+git submodule add https://github.com/xolox/vim-easytags.git _vim/bundle/easytags

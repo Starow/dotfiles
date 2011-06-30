@@ -1,6 +1,7 @@
 #!/bin/bash
 
-sudo apt-get install vim-scripts pep8 rake vim-nox ruby1.8-dev build-essential
+sudo apt-get install vim-scripts pep8 rake vim-nox ruby1.8-dev build-essential \
+                     exuberant-ctags
 
 git rm -r --cached _vim/bundle/
 rm -rf _vim/bundle/*
@@ -20,4 +21,4 @@ git submodule add https://github.com/vim-scripts/The-NERD-tree.git _vim/bundle/n
 git submodule add https://github.com/sontek/rope-vim.git _vim/bundle/ropevim
 git submodule add https://github.com/vim-scripts/AutoComplPop.git _vim/bundle/acp
 git submodule add https://github.com/altercation/vim-colors-solarized.git _vim/bundle/solarized
-
+git submodule add https://github.com/xolox/vim-easytags.git _vim/bundle/easytags
