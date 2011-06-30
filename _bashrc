@@ -208,6 +208,12 @@ fi
 
 # Add git and svn branch names
 if [[ ${EUID} != 0 ]] ; then
-    export PS1="$PS1\$(parse_git_branch)\$(parse_svn_branch) "
+    if [ -f "/usr/bin/git" ]; then
+        PS1="$PS1\$(parse_git_branch)"
+    fi
+    if [ -f "/usr/bin/svn" ]; then
+        PS1="$PS1\$(parse_svn_branch)"
+    fi
+    export PS1="$PS1 "
 fi
 
