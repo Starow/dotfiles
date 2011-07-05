@@ -35,6 +35,7 @@ defscrollback 10000
 pow_detach_msg "Screen session of \$LOGNAME \$:cr:\$:nl:ended."
 
 # Green text, time, and date; windows in blue:
+hardstatus alwayslastline
 hardstatus string '%{= kG}[ %{G}%H %{g}][%= %{= kw}%?%-Lw%?%{r}(%{W}%n*%f %t%?(%u)%?%{r})%{w}%?%+Lw%?%?%= %{g}][ %l ][%{B} %Y-%m-%d %{W}%c %{g}]'
 
 # Turn off start message:
