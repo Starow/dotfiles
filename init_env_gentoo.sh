@@ -1,6 +1,6 @@
 #!/bin/bash
 
-sudo emerge -va dev-python/rlcompleter2 app-vim/nerdtree app-vim/fugitive \
+sudo emerge -vaDN dev-python/rlcompleter2 app-vim/nerdtree app-vim/fugitive \
                 app-vim/snipmate app-vim/surround app-vim/minibufexpl \
                 app-vim/command-t dev-python/pyflakes app-vim/gundo \
                 dev-python/pep8 dev-python/pytest app-vim/extra-syntax \
