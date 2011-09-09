@@ -2,6 +2,9 @@
     editor = vim
     ignorecase = true
     excludesfile = /home/raphael/.gitignore
+    whitespace = trailing-space,space-before-tab
+[apply]
+    whitespace = fix
 [user]
     name = Raphaël Vinot
     email = raphael@vinot.info
