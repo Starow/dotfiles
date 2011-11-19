@@ -15,19 +15,12 @@ if [ -f "/usr/bin/pygmentize" ]; then
 fi
 export LESSCOLOR="always"
 
-# GPG Config
-GPG_TTY=$(tty)
-export GPG_TTY
-if [ -f "${HOME}/.gnupg/.gpg-agent-info" ]; then
-    . "${HOME}/.gnupg/.gpg-agent-info"
-fi
-
 # Some cool things
 export HISTSIZE=1000
 export HISTFILESIZE=1000
 export GREP_OPTIONS='--color=auto --exclude=*~'
-if [ -f "/usr/bin/firefox" ]; then
-    export BROWSER="firefox"
+if [ -f "/usr/bin/lynx" ]; then
+    export BROWSER="lynx"
 fi
 
 # Colorize logs
@@ -36,8 +29,6 @@ if [ -f "/usr/bin/ccze" ]; then
     taillog() { tail -f $1 | ccze -A; }
 fi
 
-#osx color terminal
-export CLICOLOR=1
 # don't put duplicate lines in the history. See bash(1) for more options
 # don't overwrite GNU Midnight Commander's setting of `ignorespace'.
 HISTCONTROL=$HISTCONTROL${HISTCONTROL+,}ignoredups
