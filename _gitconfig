@@ -6,7 +6,7 @@
 [apply]
     whitespace = fix
 [user]
-    name = RaphaÃl Vinot
+    name = Raphaël Vinot
     email = raphael@vinot.info
     signingkey = 33B3792F
 [color]
