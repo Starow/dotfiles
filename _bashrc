@@ -29,6 +29,9 @@ if [ -f "/usr/bin/ccze" ]; then
     taillog() { tail -f $1 | ccze -A; }
 fi
 
+# Expand Shortened URLs
+expandurl() { { curl -sI $1 | sed -n 's/Location:.* //p';} }
+
 # don't put duplicate lines in the history. See bash(1) for more options
 # don't overwrite GNU Midnight Commander's setting of `ignorespace'.
 HISTCONTROL=$HISTCONTROL${HISTCONTROL+,}ignoredups

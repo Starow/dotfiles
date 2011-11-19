@@ -24,6 +24,7 @@ set keymap vi-command
 set keymap vi-insert
 "\C-l": clear-screen
 "\C-w": backward-kill-word
+"\C-x": kill-word
 # auto-complete from the history
 "\C-p": history-search-backward
 "\C-n": history-search-forward
