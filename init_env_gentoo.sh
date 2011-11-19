@@ -1,7 +1,7 @@
 #!/bin/bash
 
 # Global stuff
-sudo emerge -vaDN screen tmux vim genlop g-cpan
+sudo emerge -vaDN screen tmux vim genlop g-cpan most lynx
 
 # used by dotfiles
 sudo emerge -vaDN dev-python/rlcompleter2 app-vim/nerdtree app-vim/fugitive \
