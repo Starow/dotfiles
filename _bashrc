@@ -154,6 +154,7 @@ fi
 alias psg='ps aux |grep -i'
 alias scpresume="rsync --partial --progress --rsh=ssh"
 alias sslTelnet='openssl s_client -connect ' # host:port
+alias todo='ssh -qt Hetzner todo.sh' # command
 
 # Alias definitions.
 if [ -f ~/.bash_aliases ]; then
