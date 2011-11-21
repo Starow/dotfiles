@@ -1,3 +1,8 @@
+# set PATH so it includes user's private bin if it exists
+if [ -d "$HOME/bin" ]; then
+    export PATH="$HOME/bin:$PATH"
+fi
+
 # If not running interactively, don't do anything
 [ -z "$PS1" ] && return
 
@@ -35,6 +40,9 @@ if [ -f "/usr/bin/ccze" ]; then
     lesslog() { ccze -A < $1 | less -R; }
     taillog() { tail -f $1 | ccze -A; }
 fi
+
+# Expand Shortened URLs
+expandurl() { { curl -sI $1 | sed -n 's/Location:.* //p';} }
 
 #osx color terminal
 export CLICOLOR=1
@@ -146,6 +154,7 @@ fi
 alias psg='ps aux |grep -i'
 alias scpresume="rsync --partial --progress --rsh=ssh"
 alias sslTelnet='openssl s_client -connect ' # host:port
+alias todo='ssh -qt Hetzner todo.sh' # command
 
 # Alias definitions.
 if [ -f ~/.bash_aliases ]; then
