@@ -21,4 +21,6 @@ git submodule add https://github.com/vim-scripts/TaskList.vim.git _vim/bundle/ta
 git submodule add https://github.com/sontek/rope-vim.git _vim/bundle/ropevim
 git submodule add https://github.com/vim-scripts/AutoComplPop.git _vim/bundle/acp
 git submodule add https://github.com/altercation/vim-colors-solarized.git _vim/bundle/solarized
-
+git submodule add https://github.com/vim-scripts/pep8.git _vim/bundle/pep8
+git submodule add https://github.com/mitechie/pyflakes-pathogen.git _vim/bundle/pyflakes
+git submodule add https://github.com/ervandew/supertab.git _vim/bundle/supertab

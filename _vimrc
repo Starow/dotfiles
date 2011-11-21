@@ -244,7 +244,7 @@ nnoremap <leader><space> :nohlsearch<cr>
 nnoremap <leader>S :%s/\s\+$//<cr>:let @/=''<CR>
 
 " Select the item in the list with enter
-inoremap <expr> <CR> pumvisible() ? "\<C-y>" : "\<C-g>u\<CR>"
+"inoremap <expr> <CR> pumvisible() ? "\<C-y>" : "\<C-g>u\<CR>"
 
 " Drop trailing whitespace
 highlight WhitespaceEOL ctermbg=red guibg=red
@@ -260,7 +260,8 @@ endif
 " Jump to the last cursor position when reopening a file
 if has("autocmd")
   au BufReadPost * if line("'\"") > 0 && line("'\"") <= line("$")
-    \| exe "normal! g'\"" | endif
+              \| exe "normal! g'\"" | endif
+
 endif
 
 set history=100
@@ -302,9 +303,9 @@ au BufRead,BufNewFile *.md set syntax=markdown
 " Python
 "au BufRead *.py compiler nose
 au FileType python set omnifunc=pythoncomplete#Complete
+let g:SuperTabDefaultCompletionType = "context"
 au FileType python setlocal expandtab shiftwidth=4 tabstop=8 softtabstop=4 smartindent cinwords=if,elif,else,for,while,try,except,finally,def,class,with
 let python_highlight_all = 1
 au BufRead *.py set efm=%C\ %.%#,%A\ \ File\ \"%f\"\\,\ line\ %l%.%#,%Z%[%^\ ]%\\@=%m
 " Don't let pyflakes use the quickfix window
 let g:pyflakes_use_quickfix = 0
-
