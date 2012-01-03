@@ -301,7 +301,7 @@ autocmd FileType html,xhtml,xml,css setlocal expandtab shiftwidth=2 tabstop=2 so
 au BufRead,BufNewFile *.md set syntax=markdown
 
 " Python
-"au BufRead *.py compiler nose
+au BufRead,BufNewFile *.py set filetype=python
 au FileType python set omnifunc=pythoncomplete#Complete
 let g:SuperTabDefaultCompletionType = "context"
 au FileType python setlocal expandtab shiftwidth=4 tabstop=8 softtabstop=4 smartindent cinwords=if,elif,else,for,while,try,except,finally,def,class,with
