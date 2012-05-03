@@ -195,7 +195,8 @@ fi
 if [ -f "/usr/bin/git" ]; then
     parse_git_branch ()
     {
-      git name-rev HEAD 2> /dev/null | sed 's#HEAD\ \(.*\)#(git::\1)#'
+        git branch 2> /dev/null | sed -e '/^[^*]/d' -e 's/* \(.*\)/(git::\1)/'
+#      git name-rev HEAD 2> /dev/null | sed 's#HEAD\ \(.*\)#(git::\1)#'
     }
 fi
 
