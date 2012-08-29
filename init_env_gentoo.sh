@@ -1,12 +1,12 @@
 #!/bin/bash
 
 # Global stuff
-sudo emerge -vaDN screen tmux vim genlop g-cpan most lynx
+sudo emerge -vaDN app-misc/screen tmux vim genlop g-cpan most lynx
 
 # used by dotfiles
 sudo emerge -vaDN dev-python/rlcompleter2 app-vim/nerdtree app-vim/fugitive \
-                app-vim/snipmate app-vim/surround app-vim/minibufexpl \
-                app-vim/command-t dev-python/pyflakes app-vim/gundo \
+                app-vim/snipmate app-vim/surround \
+                dev-python/pyflakes app-vim/gundo \
                 dev-python/pep8 dev-python/pytest app-vim/extra-syntax \
                 app-vim/eselect-syntax app-vim/nginx-syntax sys-apps/ack \
                 app-vim/easytags app-vim/colorschemes inconsolata \
