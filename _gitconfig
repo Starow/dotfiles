@@ -30,3 +30,5 @@
     st = status
 	unstage = reset HEAD --
 	last = log -1 head
+[remote-hg]
+	hg-git-compat = true

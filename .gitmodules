@@ -54,4 +54,10 @@
 	url = https://github.com/xolox/vim-easytags.git
 [submodule "_vim/bundle/misc"]
 	path = _vim/bundle/misc
-	url = http://github.com/xolox/vim-misc
+	url = https://github.com/xolox/vim-misc
+[submodule "syntastic"]
+	path = syntastic
+	url = https://github.com/scrooloose/syntastic.git
+[submodule "_vim/bundle/syntastic"]
+	path = _vim/bundle/syntastic
+	url = https://github.com/scrooloose/syntastic.git

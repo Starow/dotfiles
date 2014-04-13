@@ -2,8 +2,6 @@
 
 set -e
 
-#OS="gentoo"
-
 function link_file {
     source="${PWD}/$1"
     target="${HOME}/${1/_/.}"
@@ -26,25 +24,3 @@ else
         link_file $i
     done
 fi
-
-#if [ "$OS" = "gentoo" ]; then
-#    cp gitmodules-gentoo .gitmodules
-#elif [ "$OS" = "debian" ]; then
-#    cp gitmodules-debian .gitmodules
-#else
-#    cp gitmodules-default .gitmodules
-#fi
-
-
-#git submodule sync
-#git submodule init
-#git submodule update
-#git submodule foreach git pull origin master
-#git submodule foreach git submodule init
-#git submodule foreach git submodule update
-
-# setup command-t
-#if [ "$OS" != "gentoo" ]; then
-#    cd _vim/bundle/command-t
-#    rake make
-#fi
