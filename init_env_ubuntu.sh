@@ -1,7 +1,8 @@
 #!/bin/bash
 
 sudo apt-get install vim vim-scripts vim-nox pylint build-essential \
-                     exuberant-ctags tmux fonts-inconsolata htop
+                     exuberant-ctags tmux fonts-inconsolata htop \
+                     python-virtualenv
 
 sudo pip install --upgrade flake8
 
