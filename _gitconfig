@@ -1,14 +1,14 @@
 [core]
     editor = vim
     ignorecase = true
-    excludesfile = /home/raphael/.gitignore
+    excludesfile = /home/jules/.gitignore
     whitespace = trailing-space,space-before-tab
 [apply]
     whitespace = fix
 [user]
-    name = Raphaël Vinot
-    email = raphael@vinot.info
-    signingkey = 33B3792F
+    name = Debra Jules
+    email = jules.debra@conostix.com
+    signingkey = 
 [color]
     diff = auto
     status = auto

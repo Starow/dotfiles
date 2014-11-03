@@ -218,6 +218,13 @@ autocmd VimEnter * imap <expr> <S-Tab> pumvisible() ? "<C-P>" : "<S-Tab>"
 snor <c-j> <esc>i<right><c-r>=TriggerSnippet()<cr>
 let g:acp_completeoptPreview=1
 
+" ==========================================================
+" VimWiki
+" ==========================================================
+set nocompatible
+filetype plugin on
+syntax on
+
 " ===========================================================
 " FileType specific changes
 " ============================================================
