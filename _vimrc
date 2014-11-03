@@ -229,6 +229,9 @@ autocmd FileType html,xhtml,xml,css setlocal expandtab shiftwidth=2 tabstop=2 so
 au BufRead,BufNewFile *.md,*.markdown set syntax=markdown
 
 " Python
+let g:syntastic_python_checkers=["flake8"]
+let g:syntastic_python_flake8_args="--ignore=E501,W601"
+"let g:pymode_lint_ignore="E501,W601"
 au BufRead,BufNewFile *.py set filetype=python
 au FileType python set omnifunc=pythoncomplete#Complete
 let g:SuperTabDefaultCompletionType = "context"
