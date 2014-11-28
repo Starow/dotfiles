@@ -73,8 +73,9 @@ set vb t_vb=
 set t_Co=256
 
 " Set colorscheme
-colorscheme desert256
+colorscheme elflord
 highlight Search ctermfg=black
+set number
 
 " Easytag
 let easytags_resolve_links = 1
